@@ -19,10 +19,6 @@ public class DepartmentQueries {
     private DepartmentQueries() {
     }
 
-    public static void main(String[] args) {
-        dropDepartmentTable();
-    }
-
     public static void createTableDepart() {
         try (PreparedStatement preparedStatement = Connector.getConnection().prepareStatement(SqlQueries.CREATE_DEPARTMENTS_TABLE)) {
             preparedStatement.executeUpdate();

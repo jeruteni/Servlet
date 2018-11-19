@@ -2,6 +2,7 @@ package com.eugene.servlets;
 
 import com.eugene.database.DepartmentQueries;
 import lombok.extern.log4j.Log4j;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,7 +28,7 @@ public class UpdateDepartment extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            resp.setCharacterEncoding("UTF-8");
+            req.setCharacterEncoding("UTF-8");
             int departmentId = Integer.parseInt(req.getParameter("id"));
             String newDepartmentName = req.getParameter("departmentname");
             DepartmentQueries.updateDepartment(departmentId, newDepartmentName);

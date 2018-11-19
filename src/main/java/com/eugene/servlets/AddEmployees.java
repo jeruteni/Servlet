@@ -20,6 +20,7 @@ public class AddEmployees extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
+            req.setCharacterEncoding("UTF-8");
             int id = Integer.parseInt(req.getParameter("departmentID"));
             String firstName = req.getParameter("firstName");
             String lastName = req.getParameter("lastName");
@@ -36,7 +37,6 @@ public class AddEmployees extends HttpServlet {
 
         try {
             String departmentId = req.getParameter("id");
-
             req.setAttribute("departmentID", departmentId);
             req.getRequestDispatcher("WEB-INF/jsp/AddEmployees.jsp").forward(req, resp);
 

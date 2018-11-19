@@ -1,6 +1,5 @@
 package com.eugene.servlets;
 
-import com.eugene.database.DepartmentQueries;
 import com.eugene.database.EmployeeQueries;
 import com.eugene.model.Employee;
 import lombok.extern.log4j.Log4j;
@@ -20,13 +19,6 @@ import java.util.List;
 @Log4j
 @WebServlet(urlPatterns = "/ListEmployee")
 public class ListEmployee extends HttpServlet {
-
-    @Override
-    public void init() {
-        DepartmentQueries.createTableDepart();
-        EmployeeQueries.createEmployeeTable();
-
-    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {

@@ -29,7 +29,6 @@ public class ListDepartment extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
-            resp.setCharacterEncoding("UTF-8");
             List<Department> departments = DepartmentQueries.selectAllDep();
             req.setAttribute("departments", departments);
             req.getRequestDispatcher("WEB-INF/jsp/list.jsp").forward(req, resp);

@@ -31,12 +31,12 @@ public class UpdateEmployee extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
         try {
+            req.setCharacterEncoding("UTF-8");
             String firstName = req.getParameter("firstName");
             String lastName = req.getParameter("lastName");
             int age = Integer.parseInt(req.getParameter("age"));
             int employeeId = Integer.parseInt(req.getParameter("employeeID"));
             Employee employee = EmployeeQueries.getEmployee(employeeId);
-
             EmployeeQueries.updateEmployee(firstName, lastName, age, employeeId);
             resp.sendRedirect("ListEmployee?id=" + employee.getDepartmentID());
         } catch (IOException | NumberFormatException e) {
